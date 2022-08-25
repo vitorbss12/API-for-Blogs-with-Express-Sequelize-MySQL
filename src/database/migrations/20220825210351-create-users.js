@@ -7,12 +7,12 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       displayName: {
         allowNull: false,
         type: Sequelize.STRING,
-        field: 'display_name'
+        field: 'display_name',
       },
       email: {
         allowNull: false,
@@ -29,7 +29,7 @@ module.exports = {
     });
   },
 
-  down: async (queryInterface, Sequelize) => {
+  down: async (queryInterface, _Sequelize) => {
     return queryInterface.dropTable('Users');
   }
 };
