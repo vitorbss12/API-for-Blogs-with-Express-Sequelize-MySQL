@@ -19,8 +19,6 @@ module.exports = (sequelize, DataTypes) => {
   return User;
 }
 
-
-
 /*
 id INT,
 displayName VARCHAR(255),
