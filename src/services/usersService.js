@@ -6,11 +6,13 @@ const sequelize = new Sequelize(
   process.env.NODE_ENV === 'test' ? config.test : config.development,
 );
 
-const findAll = async () => User.findAll();
+const findAll = async () => User.findAll({
+  attributes: { exclude: ['password'] },
+});
 
 const findByEmail = async (email) => User.findOne({ where: { email } });
 
-const findById = async (id) => User.findOne({ where: { id } });
+const findById = async (id) => User.findByPk(id, { attributes: { exclude: ['password'] } });
 
 const create = async (user) => {
   const { displayName, email, password, image } = user;
