@@ -1,4 +1,5 @@
 const usersService = require('../services/usersService');
+const generateTokenJWT = require('../middlewares/generateTokenJWT');
 
 const create = async (req, res, next) => {
   try {
@@ -6,9 +7,10 @@ const create = async (req, res, next) => {
     const newInfoUser = { displayName, email, password, image };
 
     const newUser = await usersService.create(newInfoUser);
-    console.log(newUser);
+    
+    const token = await generateTokenJWT(newUser.dataValues);
 
-    res.status(200).json({ message: 'ok' });
+    return res.status(200).json({ token });
   } catch (err) {
     next(err);
   }
