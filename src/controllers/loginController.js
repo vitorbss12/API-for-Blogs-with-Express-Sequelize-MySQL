@@ -1,16 +1,10 @@
-const jwt = require('jsonwebtoken');
-
-const secret = process.env.JWT_SECRET;
+const generateTokenJWT = require('../middlewares/generateTokenJWT');
 
 const login = async (req, res, next) => {
   try {
     const { user } = req;
 
-    const jwtConfig = {
-      expiresIn: '1d',
-      algorithm: 'HS256',
-    };
-    const token = jwt.sign({ data: user }, secret, jwtConfig);
+    const token = await generateTokenJWT(user);
     
     return res.status(200).json({ token });
   } catch (err) {
