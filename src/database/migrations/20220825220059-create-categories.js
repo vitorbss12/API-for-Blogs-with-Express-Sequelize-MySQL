@@ -13,6 +13,13 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING,
       },
+    }, {
+      uniqueKeys: {
+        category_name: {
+          customIndex: true,
+          fields: ['name'],
+        },
+      },
     });
   },
 
