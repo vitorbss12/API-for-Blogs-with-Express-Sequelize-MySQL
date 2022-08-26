@@ -9,6 +9,7 @@ const loginValidation = async (req, res, next) => {
     return res.status(400).json({ message: 'Invalid fields' });
   }
 
+  req.user = user.dataValues;
   next();
 };
 
