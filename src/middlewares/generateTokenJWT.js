@@ -8,7 +8,7 @@ const generateTokenJWT = async (user) => {
     algorithm: 'HS256',
   };
   const token = jwt.sign({ data: user }, secret, jwtConfig);
-  
+
   return token;
 };
 
