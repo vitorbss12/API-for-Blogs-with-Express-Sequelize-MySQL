@@ -1,15 +1,18 @@
 const joi = require('joi');
 
+const RES_MESSAGE = 'Some required fields are missing';
+
 const emailSchema = joi.object({
-  email: joi.string().email().required().message({
-    'any.required': '400 | Email is required',
-    'any.email': '400 | Email is invalid',
-    'any.empty': '400 | Email is empty',
-    'any.string': '400 | Email is invalid',
+  email: joi.string().email().required().messages({
+    'any.required': `400|${RES_MESSAGE}`,
+    'string.base': `400|${RES_MESSAGE}`,
+    'string.empty': `400|${RES_MESSAGE}`,
+    'string.email': `400|${RES_MESSAGE}`,
   }),
-  password: joi.string().required().message({
-    'any.required': '400 | Password is required',
-    'any.empty': '400 | Password is empty',
+  password: joi.string().required().messages({
+    'any.required': `400|${RES_MESSAGE}`,
+    'string.base': `400|${RES_MESSAGE}`,
+    'string.empty': `400|${RES_MESSAGE}`,
   }),
 });
 

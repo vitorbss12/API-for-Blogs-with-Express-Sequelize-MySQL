@@ -1,6 +1,6 @@
 const loginSchema = require('./schemas/loginSchema');
 
-const loginBodyValidator = (req, res, next) => {
+const loginBodyValidation = (req, res, next) => {
   const { email, password } = req.body;
 
   const { error } = loginSchema.validate({ email, password });
@@ -13,4 +13,4 @@ const loginBodyValidator = (req, res, next) => {
   next();
 };
 
-module.exports = loginBodyValidator;
+module.exports = loginBodyValidation;
