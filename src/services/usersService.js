@@ -6,10 +6,11 @@ const sequelize = new Sequelize(
   process.env.NODE_ENV === 'test' ? config.test : config.development,
 );
 
-const findByEmail = async (email) => {
-  const user = await User.findOne({ where: { email } });
-  return user;
-};
+const findAll = async () => User.findAll();
+
+const findByEmail = async (email) => User.findOne({ where: { email } });
+
+const findById = async (id) => User.findOne({ where: { id } });
 
 const create = async (user) => {
   const { displayName, email, password, image } = user;
@@ -27,6 +28,8 @@ const create = async (user) => {
 };
 
 module.exports = {
+  findAll,
   findByEmail,
+  findById,
   create,
 };
