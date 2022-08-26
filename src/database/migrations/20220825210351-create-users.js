@@ -25,6 +25,13 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING,
       }
+    }, {
+      uniqueKeys: {
+        users_email: {
+          customIndex: true,
+          fields: ['email'],
+        },
+      },
     });
   },
 
