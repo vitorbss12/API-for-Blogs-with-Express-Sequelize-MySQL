@@ -1,8 +1,9 @@
 const errorMiddleware = (err, _req, res, _next) => {
-  res.status(err.statusCode || 500).json({
-    message: err.message,
-    status: err.statusCode || 500,
-  });
+  if (err.name === 'SequelizeUniqueConstraintError') {
+    return res.status(409).json({ message: 'User already registered' });
+  }
+
+  res.status(500).json({ message: err.message });
 };
 
 module.exports = errorMiddleware;
