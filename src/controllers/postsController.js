@@ -3,7 +3,6 @@ const postsService = require('../services/postsService');
 const create = async (req, res, next) => {
   try {
     const { title, content, categoryIds } = req.body;
-    console.log(categoryIds);
     const { id: userId } = req.user;
     const newPost = { userId, title, content };
 
