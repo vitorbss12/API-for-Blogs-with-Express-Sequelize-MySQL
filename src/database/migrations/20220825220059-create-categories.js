@@ -27,8 +27,3 @@ module.exports = {
     return queryInterface.dropTable('Categories');
   }
 };
-
-/*
-id INT,
-name VARCHAR(255),
-*/

@@ -30,8 +30,3 @@ module.exports = {
     return queryInterface.dropTable('PostCategories');
   }
 };
-
-/*
-postId INT,
-categoryId INT,
-*/

@@ -39,11 +39,3 @@ module.exports = {
     return queryInterface.dropTable('Users');
   }
 };
-
-/*
-id INT,
-displayName VARCHAR(255),
-email VARCHAR(255),
-password VARCHAR(255),
-image VARCHAR(255),
-*/

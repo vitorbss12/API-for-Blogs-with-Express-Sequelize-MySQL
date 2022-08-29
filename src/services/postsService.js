@@ -7,13 +7,6 @@ const sequelize = new Sequelize(
 );
 
 const findAll = async () => BlogPost.findAll({
-  // include: [{
-  //   model: PostCategory,
-  //   as: 'categories',
-  // }, {
-  //   model: User,
-  //   as: 'user',
-  // }],
   include: [{
     model: User,
     as: 'user',
