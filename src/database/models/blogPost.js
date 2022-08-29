@@ -6,10 +6,18 @@ module.exports = (sequelize, DataTypes) => {
     title: DataTypes.STRING,
     content: DataTypes.STRING,
     userId: { type: DataTypes.INTEGER, foreignKey: true },
-    published: DataTypes.DATE,
-    updated: DataTypes.DATE,
+    published: {
+      allowNull: false,
+      type: DataTypes.DATE,
+    },
+    updated: {
+      allowNull: false,
+      type: DataTypes.DATE,
+    },
     }, {
       tableName: 'BlogPosts',
+      createdAt: 'published',
+      updatedAt: 'updated',
   });
 
   BlogPost.associate = (models) => {

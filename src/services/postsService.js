@@ -7,11 +7,12 @@ const sequelize = new Sequelize(
 );
 
 const create = async (post, categoryIds) => {
-  const { title, content } = post;
+  const { userId, title, content } = post;
+  console.log(categoryIds);
 
   const result = await sequelize.transaction(async (t) => {
     const newPost = await BlogPost.create(
-      { title, content },
+      { title, content, userId },
       { transaction: t },
     );
 
