@@ -8,6 +8,10 @@ const errorMiddleware = (err, _req, res, _next) => {
     return res.status(409).json({ message: `${field} already registered` });
   }
 
+  if (err.name === 'SequelizeForeignKeyConstraintError') {
+    return res.status(400).json({ message: '"categoryIds" not found' });
+  }
+
   res.status(500).json({ message: err.message });
 };
 
