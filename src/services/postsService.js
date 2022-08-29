@@ -18,6 +18,18 @@ const findAll = async () => BlogPost.findAll({
   }],
 });
 
+const findById = async (id) => BlogPost.findByPk(id, {
+  include: [{
+    model: User,
+    as: 'user',
+    attributes: { exclude: ['password'] },
+  }, {
+    model: Category,
+    as: 'categories',
+    through: { attributes: [] },
+  }],
+});
+
 const create = async (post, categoryIds) => {
   const { userId, title, content } = post;
   console.log(categoryIds);
@@ -44,5 +56,6 @@ const create = async (post, categoryIds) => {
 
 module.exports = {
   findAll,
+  findById,
   create,
 };

@@ -10,6 +10,20 @@ const findAll = async (req, res, next) => {
   }
 };
 
+const findById = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+
+    const post = await postsService.findById(id);
+
+    if (!post) res.status(404).json({ message: 'Post does not exist' });
+
+    return res.status(200).json(post);
+  } catch (err) {
+    next(err);
+  }
+};
+
 const create = async (req, res, next) => {
   try {
     const { title, content, categoryIds } = req.body;
@@ -26,5 +40,6 @@ const create = async (req, res, next) => {
 
 module.exports = {
   findAll,
+  findById,
   create,
 };
