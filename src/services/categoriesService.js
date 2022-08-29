@@ -6,7 +6,7 @@ const sequelize = new Sequelize(
   process.env.NODE_ENV === 'test' ? config.test : config.development,
 );
 
-const findAll = async () => Category.findAll();
+const findAll = async () => Category.findAll({ order: [['id', 'ASC']] });
 
 const create = async (name) => {
   const result = await sequelize.transaction(async (t) => {
