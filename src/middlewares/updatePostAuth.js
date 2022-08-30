@@ -9,7 +9,7 @@ const updatePostAuth = async (req, res, next) => {
 
     if (!post) res.status(404).json({ message: 'Post does not exist' });
 
-    if (post.userId !== userId) return res.status(403).json({ message: 'Unauthorized user' });
+    if (post.userId !== userId) return res.status(401).json({ message: 'Unauthorized user' });
 
     next();
   } catch (err) {
