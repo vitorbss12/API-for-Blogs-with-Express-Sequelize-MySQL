@@ -9,9 +9,9 @@ const app = express();
 app.use(express.json());
 
 app.use('/login', routes.loginRoute);
-app.use('/user', routes.userRoute);
+app.use('/users', routes.usersRoutes);
 app.use('/categories', routes.categoriesRoute);
-app.use('/post', routes.postsRoute);
+app.use('/posts', routes.postsRoute);
 
 app.use(errorMiddleware);
 

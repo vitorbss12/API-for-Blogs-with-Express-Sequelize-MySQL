@@ -2,17 +2,17 @@ const express = require('express');
 
 const postsController = require('../controllers/postsController');
 
-const postsRoute = express.Router();
+const postsRoutes = express.Router();
 const createPostValidation = require('../middlewares/createPostValidation');
 const validateJWT = require('../middlewares/validateJWT');
 const updatePostAuth = require('../middlewares/updatePostAuth');
 const updatePostValidation = require('../middlewares/updatePostValidation');
 
-postsRoute.get('/', validateJWT, postsController.findAll);
-postsRoute.get('/search', validateJWT, postsController.search);
-postsRoute.get('/:id', validateJWT, postsController.findById);
-postsRoute.post('/', validateJWT, createPostValidation, postsController.create);
-postsRoute.put('/:id', validateJWT, updatePostAuth, updatePostValidation, postsController.update);
-postsRoute.delete('/:id', validateJWT, updatePostAuth, postsController.remove);
+postsRoutes.get('/', validateJWT, postsController.findAll);
+postsRoutes.get('/search', validateJWT, postsController.search);
+postsRoutes.get('/:id', validateJWT, postsController.findById);
+postsRoutes.post('/', validateJWT, createPostValidation, postsController.create);
+postsRoutes.put('/:id', validateJWT, updatePostAuth, updatePostValidation, postsController.update);
+postsRoutes.delete('/:id', validateJWT, updatePostAuth, postsController.remove);
 
-module.exports = postsRoute;
+module.exports = postsRoutes;
