@@ -26,12 +26,3 @@ module.exports = (sequelize, DataTypes) => {
 
   return BlogPost;
 }
-
-/*
-id INT,
-title VARCHAR(255),
-content VARCHAR(255),
-userId INT,
-published DATETIME,
-update DATETIME,
-*/

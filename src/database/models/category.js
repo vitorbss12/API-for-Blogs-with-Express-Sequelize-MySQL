@@ -16,14 +16,5 @@ module.exports = (sequelize, DataTypes) => {
     ],
   });
 
-  // User.associate = (models) => {
-  //   User.hasMany(models.PostCategories, { foreignKey: 'categoryId' });
-  // };
-
   return Category;
 }
-
-/*
-id INT,
-name VARCHAR(255),
-*/
