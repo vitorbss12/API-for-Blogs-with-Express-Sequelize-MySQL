@@ -56,18 +56,16 @@ const create = async (post, categoryIds) => {
 const update = async (post) => {
   const { id, title, content } = post;
 
-  const result = await sequelize.transaction(async (t) => {
+  await sequelize.transaction(async (t) => {
     await BlogPost.update(
       { title, content },
       { where: { id }, transaction: t },
     );
-
-    const updatedPost = await findById(id);
-
-    return updatedPost;
   });
 
-  return result;
+  const updatedPost = await findById(id);
+
+  return updatedPost;
 };
 
 const remove = async (id) => {
