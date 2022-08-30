@@ -86,8 +86,6 @@ src
   <br />
 </details>
 
-##
-
 <details>
   <summary><strong>Users</strong></summary>
 
@@ -123,8 +121,6 @@ src
   <br />
 </details>
 
-##
-
 <details>
   <summary><strong>Categories</strong></summary>
 
@@ -147,8 +143,6 @@ src
 
   <br />
 </details>
-
-##
 
 <details>
   <summary><strong>Posts</strong></summary>
@@ -205,8 +199,6 @@ src
 
   <br />
 </details>
-
-##
 
 # **Instruções**
 
