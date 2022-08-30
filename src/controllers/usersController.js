@@ -30,10 +30,22 @@ const create = async (req, res, next) => {
     const newInfoUser = { displayName, email, password, image };
 
     const newUser = await usersService.create(newInfoUser);
-    
-    const token = await generateTokenJWT(newUser.dataValues);
+
+    const token = await generateTokenJWT(newUser);
 
     return res.status(201).json({ token });
+  } catch (err) {
+    next(err);
+  }
+};
+
+const remove = async (req, res, next) => {
+  try {
+    const { id: userId } = req.user;
+
+    await usersService.remove(userId);
+
+    return res.status(204).end();
   } catch (err) {
     next(err);
   }
@@ -43,4 +55,5 @@ module.exports = {
   findAll,
   findById,
   create,
+  remove,
 };
