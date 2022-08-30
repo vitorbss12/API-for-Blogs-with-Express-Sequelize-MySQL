@@ -32,7 +32,6 @@ const findById = async (id) => BlogPost.findByPk(id, {
 
 const create = async (post, categoryIds) => {
   const { userId, title, content } = post;
-  console.log(categoryIds);
 
   const result = await sequelize.transaction(async (t) => {
     const newPost = await BlogPost.create(
@@ -54,8 +53,26 @@ const create = async (post, categoryIds) => {
   return result.dataValues;
 };
 
+const update = async (post) => {
+  const { id, title, content } = post;
+
+  const result = await sequelize.transaction(async (t) => {
+    await BlogPost.update(
+      { title, content },
+      { where: { id }, transaction: t },
+    );
+
+    const updatedPost = await findById(id);
+
+    return updatedPost;
+  });
+
+  return result;
+};
+
 module.exports = {
   findAll,
   findById,
   create,
+  update,
 };
