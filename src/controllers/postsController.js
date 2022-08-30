@@ -45,9 +45,19 @@ const update = async (req, res, next) => {
 
     const updatedPost = await postsService.update({ id, title, content });
 
-    if (!updatedPost) res.status(404).json({ message: 'Post does not exist' });
-
     return res.status(200).json(updatedPost);
+  } catch (err) {
+    next(err);
+  }
+};
+
+const remove = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+
+    await postsService.remove(id);
+
+    return res.status(204).end();
   } catch (err) {
     next(err);
   }
@@ -58,4 +68,5 @@ module.exports = {
   findById,
   create,
   update,
+  remove,
 };

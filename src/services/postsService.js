@@ -70,9 +70,18 @@ const update = async (post) => {
   return result;
 };
 
+const remove = async (id) => {
+  const result = await sequelize.transaction(async (t) => {
+    await BlogPost.destroy({ where: { id }, transaction: t });
+  });
+
+  return result;
+};
+
 module.exports = {
   findAll,
   findById,
   create,
   update,
+  remove,
 };
