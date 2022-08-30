@@ -1,5 +1,5 @@
 {
-  "name": "blogs-api-with-express-jwt-sequelize-mysql",
+  "name": "api-for-blogs-with-express-jwt-sequelize-mysql",
   "version": "0.1.0",
   "engines": {
     "node": ">=16.0.0"
