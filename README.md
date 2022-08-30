@@ -33,16 +33,6 @@ Este projeto é uma de `API` seguindo princípios `REST` para um blog, onde o us
     - [**Local**](#local)
     - [**Docker**](#docker)
 - [**Ferramentas**](#ferramentas)
-    - [**Linter**](#linter)
-    - [**Node**](#node)
-    - [**Express**](#express)
-    - [**Docker**](#docker-1)
-    - [**Nodemon**](#nodemon)
-    - [**MySQL**](#mysql)
-    - [**Sequelize**](#sequelize)
-    - [**JWT**](#jwt)
-    - [**Joi**](#joi)
-    - [**dotenv**](#dotenv)
 - [**Observações**](#observações)
 
 # **Arquitetura**
@@ -260,7 +250,7 @@ Caso opte por usar o Docker os `scripts` de instalação e execução **DEVERÃO
 
 # **Ferramentas**
 
-### **Linter**
+**Linter**
 
 Este projeto foi desenvolvido utilizando o linter `ESLint` seguindo as boas práticas definidas na [Trybe](https://www.betrybe.com/).
 
@@ -269,39 +259,39 @@ Este projeto foi desenvolvido utilizando o linter `ESLint` seguindo as boas prá
 npm run lint
 ````
 
-### **Node**
+**Node**
 
 Para executar as funções deste projeto, é necessário ter o [Node](https://nodejs.org/en/) instalado.
 
-### **Express**
+**Express**
 
 `Express` é uma biblioteca para criação de aplicações web.
 
-### **Docker**
+**Docker**
 
 `Docker` é um ambiente de execução de aplicações que permite a criação de containers para execução de aplicações.
 
-### **Nodemon**
+**Nodemon**
 
 `Nodemon` é um serviço que monitora alterações no código e reinicia o servidor automaticamente.
 
-### **MySQL**
+**MySQL**
 
 `MySQL` é um banco de dados relacional, e foi utilizado para a criação do banco de dados deste projeto.
 
-### **Sequelize**
+**Sequelize**
 
-Sequelize é uma biblioteca `ORM` para o banco de dados. É utilizado para a criação do banco de dados deste projeto, populando o banco e utilizado para o desenvolvimento das funções da camada `Model`.
+Sequelize é uma biblioteca `ORM` para o banco de dados. É utilizado para a criação do banco de dados deste projeto, populando o banco e utilizado para o desenvolvimento das funções da camada `Model`. A estrutura do `Sequelize` pode ser encontrada na pasta `/database`.
 
-### **JWT**
+**JWT**
 
-`JWT` é uma biblioteca para criação de tokens. É utilizado para geração de tokens para autenticação de usuários da api.
+`JWT` é uma biblioteca para criação de tokens. É utilizado para geração de tokens para autenticação de usuários da api. Foi utilização na maior parte das requisição, sua configuração está na pasta `/middlewares`.
 
-### **Joi**
+**Joi**
 
-`Joi` é uma biblioteca para validação de dados. É utilizado para validação de dados de entrada da api.
+`Joi` é uma biblioteca para validação de dados. É utilizado para validação de dados de entrada da api. Seu uso pode ser encontrado nos middlewares de validação e schemas em `/middlewares`.
 
-### **dotenv**
+**dotenv**
 
 `dotenv` é uma biblioteca para leitura de arquivos de configuração. É utilizado para leitura de variáveis de ambiente.
 
