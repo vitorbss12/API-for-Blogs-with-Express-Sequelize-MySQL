@@ -30,8 +30,8 @@ Este projeto é uma de `API` seguindo princípios `REST` para um blog, onde o us
     - [**``DELETE /api/posts/:id``**](#delete-apipostsid)
 - [**Instruções**](#instruções)
     - [**Instalação e Execução**](#instalação-e-execução)
-      - [**Local**](#local)
-      - [**Docker**](#docker)
+    - [**Local**](#local)
+    - [**Docker**](#docker)
 - [**Ferramentas**](#ferramentas)
     - [**Linter**](#linter)
     - [**Node**](#node)
@@ -238,11 +238,11 @@ npm start
 npm run debug
 ````
 
-#### **Local**
+### **Local**
 
 Para execução do ambiente local é necessário ter o `MySQL` instalado e rodar o `scripts` anteriores.
 
-#### **Docker**
+### **Docker**
 
 Para execução do ambiente docker é necessário ter o `Docker` e `docker-compose` instalado.
 
