@@ -24,6 +24,18 @@ const findById = async (req, res, next) => {
   }
 };
 
+const search = async (req, res, next) => {
+  try {
+    const { q } = req.query;
+
+    const posts = await postsService.search(q);
+
+    return res.status(200).json(posts);
+  } catch (err) {
+    next(err);
+  }
+};
+
 const create = async (req, res, next) => {
   try {
     const { title, content, categoryIds } = req.body;
@@ -66,6 +78,7 @@ const remove = async (req, res, next) => {
 module.exports = {
   findAll,
   findById,
+  search,
   create,
   update,
   remove,

@@ -30,6 +30,27 @@ const findById = async (id) => BlogPost.findByPk(id, {
   }],
 });
 
+const search = async (searchTerm) => {
+  const { Op } = Sequelize;
+  const searchQuery = `%${searchTerm}%`;
+
+  const result = await BlogPost.findAll({
+    where: {
+      [Op.or]: [
+        { title: { [Op.like]: searchQuery } },
+        { content: { [Op.like]: searchQuery } },
+      ],
+    },
+    include: [{
+      model: User, as: 'user', attributes: { exclude: ['password'] },
+    }, {
+      model: Category, as: 'categories', through: { attributes: [] },
+    }],
+  });
+
+  return result;
+};
+
 const create = async (post, categoryIds) => {
   const { userId, title, content } = post;
 
@@ -79,6 +100,7 @@ const remove = async (id) => {
 module.exports = {
   findAll,
   findById,
+  search,
   create,
   update,
   remove,
