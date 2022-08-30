@@ -5,6 +5,7 @@ const routes = require('./routes');
 const errorMiddleware = require('./middlewares/errorMiddleware');
 
 const app = express();
+app.disable('x-powered-by');
 
 app.use(express.json());
 
