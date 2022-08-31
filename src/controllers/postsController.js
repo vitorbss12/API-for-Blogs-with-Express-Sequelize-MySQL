@@ -16,7 +16,7 @@ const findById = async (req, res, next) => {
 
     const post = await postsService.findById(id);
 
-    if (!post) res.status(404).json({ message: 'Post does not exist' });
+    if (!post) return res.status(404).json({ message: 'Post does not exist' });
 
     return res.status(200).json(post);
   } catch (err) {
